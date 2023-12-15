@@ -1,0 +1,129 @@
+<?php
+
+echo "edit user controller";
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Admin Dashboard</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="your_logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+    Admin Dashboard
+  </a>
+
+  <!-- Profile utilisateur -->
+  <div class="navbar-nav ml-auto">
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="user_avatar.png" width="30" height="30" class="rounded-circle" alt="User Avatar">
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <!-- Remplacez ces informations par les données réelles de l'utilisateur -->
+        <h6 class="dropdown-header">Nom Utilisateur</h6>
+        <div class="dropdown-divider"></div>
+        <p class="dropdown-item">Full Name: John Doe</p>
+        <p class="dropdown-item">Username: johndoe</p>
+        <p class="dropdown-item">Email: john@example.com</p>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- ... (restez inchangé) ... -->
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action">Gérer Rôles</a>
+        <a href="#" class="list-group-item list-group-item-action">Gérer Services</a>
+        <a href="#" class="list-group-item list-group-item-action">Gérer Catégories</a>
+        <a href="#" class="list-group-item list-group-item-action">Gérer Blogs</a>
+      </div>
+      
+    </div>
+
+    <div class="col-md-9">
+      <h2>Dashboard</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <canvas id="userRolesChart"></canvas>
+        </div>
+        <div class="col-md-4">
+          <canvas id="servicesChart"></canvas>
+        </div>
+        <div class="col-md-4">
+          <canvas id="categoriesChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ... (restez inchangé) ...
+  var userRolesData = {
+    labels: ['Visiteur', 'Développeur', 'Admin'],
+    datasets: [{
+      data: [10, 20, 30],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+    }]
+  };
+
+  var servicesData = {
+    labels: ['Service A', 'Service B', 'Service C'],
+    datasets: [{
+      data: [25, 45, 30],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+    }]
+  };
+
+  var categoriesData = {
+    labels: ['Catégorie X', 'Catégorie Y', 'Catégorie Z'],
+    datasets: [{
+      data: [15, 30, 20],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+    }]
+  };
+
+  // Configurations des graphiques
+  var chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+  };
+
+  // Création des graphiques
+  var userRolesChart = new Chart(document.getElementById('userRolesChart').getContext('2d'), {
+    type: 'doughnut',
+    data: userRolesData,
+    options: chartOptions
+  });
+
+  var servicesChart = new Chart(document.getElementById('servicesChart').getContext('2d'), {
+    type: 'doughnut',
+    data: servicesData,
+    options: chartOptions
+  });
+
+  var categoriesChart = new Chart(document.getElementById('categoriesChart').getContext('2d'), {
+    type: 'doughnut',
+    data: categoriesData,
+    options: chartOptions
+  });
+</script>
+
+</body>
+</html>
